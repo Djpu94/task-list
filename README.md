@@ -2,6 +2,6 @@
 
 ### Intrucciones
 
-- 1. Clonar el repositorio git clone https://github.com/Djpu94/task-list.git
-- 2. Instalar npm install
-- 3. iniciar la aplicación
+- Clonar el repositorio git clone https://github.com/Djpu94/task-list.git
+- Instalar npm install
+- iniciar la aplicación
