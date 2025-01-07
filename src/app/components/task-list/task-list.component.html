@@ -1,0 +1,80 @@
+<div class="task-list-container">
+  <!-- Título -->
+  <h1 class="task-list-title">Lista de Tareas</h1>
+
+  <!-- Formulario para agregar tareas -->
+  <form [formGroup]="taskForm" class="add-task-form" (ngSubmit)="addTask()">
+    <mat-form-field appearance="outline">
+      <mat-label>Nombre de la tarea</mat-label>
+      <input matInput formControlName="name" />
+      <mat-error *ngIf="taskForm.get('name')?.hasError('required')">
+        El nombre de la tarea es obligatorio.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Descripción</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Estado</mat-label>
+      <mat-select formControlName="status">
+        <mat-option *ngFor="let state of taskStatuses" [value]="state">
+          {{ state }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      class="add-task-button"
+      color="primary"
+      type="submit"
+      [disabled]="taskForm.invalid"
+    >
+      Agregar Tarea
+    </button>
+  </form>
+
+  <!-- Tabla de tareas -->
+  <!-- <div class="task-table-container"> -->
+  <table mat-table [dataSource]="tasks" class="mat-elevation-z8">
+    <!-- Columna de Nombre -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Nombre</th>
+      <td mat-cell *matCellDef="let task">{{ task.name }}</td>
+    </ng-container>
+
+    <!-- Columna de Descripción -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef>Descripción</th>
+      <td mat-cell *matCellDef="let task">{{ task.description }}</td>
+    </ng-container>
+
+    <!-- Columna de Estado -->
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef>Estado</th>
+      <td mat-cell *matCellDef="let task">{{ task.status }}</td>
+    </ng-container>
+
+    <!-- Columna de Acciones -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let task">
+        <button mat-icon-button (click)="editTask(task)">
+          <mat-icon color="primary">edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="deleteTask(task)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- Fila de encabezado -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <!-- Fila de datos -->
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <!-- </div> -->
+</div>

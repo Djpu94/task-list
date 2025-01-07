@@ -1,0 +1,133 @@
+/* Contenedor principal */
+.task-list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Título */
+  .task-list-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  
+  /* Formulario para agregar tareas */
+  .add-task-form {
+    width: 100%;
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .add-task-form .mat-form-field {
+    width: 100%;
+  }
+  
+  /* Botón de agregar */
+  .add-task-button {
+    align-self: flex-end;
+    background-color: #4caf50;
+    color: white;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .add-task-button:hover {
+    background-color: #388e3c;
+  }
+  
+  /* Botón de eliminar */
+  button.mat-icon-button {
+    color: #f44336;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  button.mat-icon-button:hover {
+    transform: scale(1.2);
+  }
+  
+  /* Contenedor principal */
+.task-table-container {
+  margin: 20px auto;
+  padding: 16px;
+  max-width: 1200px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+/* Tabla */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+table.mat-elevation-z8 {
+  box-shadow: none;
+}
+
+/* Encabezados de la tabla */
+th.mat-header-cell {
+  background-color: #2196f3; /* Azul Angular Material */
+  color: white;
+  font-weight: bold;
+  padding: 12px;
+  font-size: 16px;
+  text-transform: uppercase;
+  border-bottom: 2px solid #1976d2;
+}
+
+/* Celdas de la tabla */
+td.mat-cell {
+  padding: 12px;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 14px;
+}
+
+/* Filas alternadas */
+tr.mat-row:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Hover en las filas */
+tr.mat-row:hover {
+  background-color: #e3f2fd;
+  cursor: pointer;
+}
+
+/* Botones de acción */
+button.mat-icon-button {
+  margin: 0 4px;
+}
+
+mat-icon {
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+/* Resaltado para la fila seleccionada */
+tr.selected {
+  background-color: #c8e6c9;
+  transition: background-color 0.3s ease;
+}
+
+/* Responsividad */
+@media screen and (max-width: 768px) {
+  th.mat-header-cell,
+  td.mat-cell {
+    font-size: 12px;
+    padding: 8px;
+  }
+}
+
+  
